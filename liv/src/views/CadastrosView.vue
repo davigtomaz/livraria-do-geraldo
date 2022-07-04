@@ -1,8 +1,7 @@
 <template>
   <div class="bg-zinc-700">
-      
     <div>
-      <h1 class="flex justify-center text-4xl p-5 text-indigo-500 bg-gray-900" >
+      <h1 class="flex justify-center text-4xl p-5 text-indigo-500 bg-gray-900">
         Área de cadastros
       </h1>
     </div>
@@ -42,7 +41,7 @@
             type="submit"
             class="w-full px-6 py-2.5 bg-indigo-500 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-indigo-700 hover:shadow-lg focus:bg-indigo-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-indigo-800 active:shadow-lg transition duration-150 ease-in-out"
           >
-           Enviar
+            Enviar
           </button>
         </form>
       </div>
@@ -72,7 +71,7 @@
               placeholder="Nome"
             />
           </div>
-          
+
           <button
             type="submit"
             class="w-full px-6 py-2.5 bg-indigo-500 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-indigo-700 hover:shadow-lg focus:bg-indigo-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-indigo-800 active:shadow-lg transition duration-150 ease-in-out"
@@ -134,12 +133,11 @@
 
   <footer class="text-center bg-gray-900 text-white">
     <div class="container px-6 pt-6">
-      <div class="flex justify-center mb-6">
-      </div>
+      <div class="flex justify-center mb-6"></div>
     </div>
 
     <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.2)">
-      © 2021 Copyright:
+      © 2022 Copyright:
       <a class="text-whitehite" href="https://tailwind-elements.com/"
         >Livraria do Geraldo</a
       >
