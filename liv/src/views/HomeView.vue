@@ -34,12 +34,8 @@
                       >
                     </h2>
                     <p class="text-lg">
-                      <span class="text-indigo-400"
-                        ><router-link to="/dashboard"
-                          >Livraria do Geraldo</router-link
-                        ></span
-                      >
-                      os melhores livros com os melhores preços!
+                      Livraria do Geraldo os melhores livros com os melhores
+                      preços!
                     </p>
                   </div>
                 </div>
