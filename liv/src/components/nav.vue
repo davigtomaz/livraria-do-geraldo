@@ -1,3 +1,23 @@
+<script>
+export default {
+  data() {
+    return {
+      items: [
+        { title: "Cadastrar Autor", item: "autor" },
+        { title: "Cadastrar Editora", item: "editora" },
+        { title: "Cadastrar Categoria", item: "categoria" },
+      ],
+    };
+  },
+  methods: {
+    select(item) {
+      this.$emit("select", item);
+      // this.selected = item;
+    },
+  },
+};
+</script>
+
 <template>
   <nav
     class="relative w-full flex flex-wrap items-center justify-between py-3 bg-gray-900 text-gray-200 shadow-lg navbar navbar-expand-lg navbar-light"
@@ -46,13 +66,51 @@
           <li class="nav-item p-2">
             <a class="nav-link text-white" href="/dashboard">Dashboard</a>
           </li>
-          <li class="nav-item p-2">
-            <a
-              class="nav-link text-white opacity-60 hover:opacity-80 focus:opacity-80 p-0"
-              href="#"
-              >Cadastrar novos itens</a
-            >
-          </li>
+
+          <div class="dropdown relative">
+            <li class="nav-item p-2">
+              <a
+                class="nav-link text-white opacity-60 hover:opacity-80 focus:opacity-80 p-0"
+                href="#"
+                id="dropdownMenuButton2"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >Cadastrar novos itens</a
+              >
+              <ul
+                class="dropdown-menu min-w-max absolute hidden bg-white text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1 hidden m-0 bg-clip-padding border-none left-auto right-0"
+                aria-labelledby="dropdownMenuButton2"
+              >
+                <li v-for="(item, i) of items" :key="i">
+                  <button
+                    class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
+                    href="#"
+                    @click="select(item.item)"
+                  >
+                    {{ item.title }}
+                  </button>
+                </li>
+                <!-- <li>
+                  <button
+                    class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
+                    href="#"
+                  >
+                    Cadastrar Autor
+                  </button>
+                </li>
+                <li>
+                  <button
+                    class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
+                    href="#"
+                  >
+                    Cadastar Livro
+                  </button>
+                </li> -->
+              </ul>
+            </li>
+          </div>
+
           <li class="nav-item p-2">
             <a
               class="nav-link text-white opacity-60 hover:opacity-80 focus:opacity-80 p-0"

@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import CadastrosView from "../views/CadastrosView.vue"
 import CadastradosView from "../views/CadastradosView.vue"
+import Dashboard from '../views/Dashboard.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -11,6 +12,10 @@ const router = createRouter({
       name: 'home',
       component: HomeView
     },
+    {
+      path: "/dashboard",
+      name: "dashboard",
+      component: Dashboard},
     {
       path: '/cadastro',
       name: 'Cadastro',
@@ -24,4 +29,4 @@ const router = createRouter({
   ]
 })
 
-export default router
+export default router;
