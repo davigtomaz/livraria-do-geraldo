@@ -1,7 +1,8 @@
 import { defineStore } from "pinia";
+import { useStatisticsStore } from "./statistics";
 import { v4 } from "uuid";
 
-export const useAuthorStore = defineStore({
+export const useAuthorStore = defineStore("Authors", {
   id: "Author",
   state: () => ({
     listOfAuthors: [{ name: "João", id: v4() }],
@@ -19,6 +20,8 @@ export const useAuthorStore = defineStore({
   },
   actions: {
     createNewAuthor(name) {
+      const store = useStatisticsStore();
+      store.increaseAuthors();
       this.listOfAuthors.push(name);
     },
   },

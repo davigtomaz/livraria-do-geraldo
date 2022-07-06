@@ -1,12 +1,15 @@
 <script>
+import { RouterLink } from "vue-router";
 export default {
   data() {
     return {
       items: [
+        { title: "Cadastrar Livro", item: "livro" },
         { title: "Cadastrar Autor", item: "autor" },
         { title: "Cadastrar Editora", item: "editora" },
         { title: "Cadastrar Categoria", item: "categoria" },
       ],
+      page: "",
     };
   },
   methods: {
@@ -14,6 +17,12 @@ export default {
       this.$emit("select", item);
       // this.selected = item;
     },
+  },
+  mounted() {
+    this.page = this.$route.name;
+  },
+  components: {
+    RouterLink,
   },
 };
 </script>
@@ -54,7 +63,7 @@ export default {
         class="collapse navbar-collapse flex-grow items-center"
         id="navbarSupportedContent1"
       >
-        <a class="text-xl text-white" href="#"
+        <a class="text-xl text-white"
           ><svg style="width: 24px; height: 24px" viewBox="0 0 24 24">
             <path
               fill="currentColor"
@@ -64,18 +73,20 @@ export default {
         <!-- Left links -->
         <ul class="navbar-nav flex flex-col pl-0 list-style-none mr-auto">
           <li class="nav-item p-2">
-            <a class="nav-link text-white" href="/dashboard">Dashboard</a>
+            <router-link class="nav-link text-white" to="/dashboard"
+              >Dashboard</router-link
+            >
           </li>
 
           <div class="dropdown relative">
             <li class="nav-item p-2">
               <a
                 class="nav-link text-white opacity-60 hover:opacity-80 focus:opacity-80 p-0"
-                href="#"
                 id="dropdownMenuButton2"
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
+                v-if="page != 'Cadastrados'"
                 >Cadastrar novos itens</a
               >
               <ul
@@ -91,32 +102,16 @@ export default {
                     {{ item.title }}
                   </button>
                 </li>
-                <!-- <li>
-                  <button
-                    class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
-                    href="#"
-                  >
-                    Cadastrar Autor
-                  </button>
-                </li>
-                <li>
-                  <button
-                    class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
-                    href="#"
-                  >
-                    Cadastar Livro
-                  </button>
-                </li> -->
               </ul>
             </li>
           </div>
 
           <li class="nav-item p-2">
-            <a
+            <router-link
               class="nav-link text-white opacity-60 hover:opacity-80 focus:opacity-80 p-0"
-              href="#"
-              >Itens já cadastrados</a
-            >
+              to="/cadastrados"
+              >Itens já cadastrados
+            </router-link>
           </li>
         </ul>
         <!-- Left links -->
