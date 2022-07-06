@@ -1,25 +1,33 @@
 import { defineStore } from "pinia";
+import { useStatisticsStore } from "./statistics";
 import { v4 } from "uuid";
 
-export const useCategoryStore = defineStore({
+export const useCategoryStore = defineStore("Categorys", {
   id: "Category",
   state: () => ({
-    listOfCategorys: [{ name: "Ação", id: v4() }],
+    listOfCategories: [
+      {
+        name: "Romântico",
+        desc: "Fala sobre amores, paixões, traições e tudo que envolve o coração! (menos cardiologia)",
+        id: v4(),
+      },
+      {
+        name: "Education",
+        desc: "Livros educativos, para fazer seu conhecimento crescer!",
+        id: v4(),
+      },
+    ],
   }),
   getters: {
     getCategorys: (state) => {
-      return state.listOfPublishers;
-    },
-    getSpecificCategory: (state) => {
-      return (authorName) =>
-        state.listOfAuthors.find(
-          (author) => author.name.toLowerCase() === authorName.toLowerCase()
-        );
+      return state.listOfCategories;
     },
   },
   actions: {
     createNewCategory(name) {
-      this.listOfCategorys.push(name);
+      const store = useStatisticsStore();
+      store.increaseCategories();
+      this.listOfCategories.push(name);
     },
   },
 });

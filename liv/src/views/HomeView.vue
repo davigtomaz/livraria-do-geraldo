@@ -1,4 +1,6 @@
-<script setup></script>
+<script setup>
+import { RouterLink } from "vue-router";
+</script>
 
 <template>
   <div class="bg-zinc-700 h-screen">
@@ -34,8 +36,12 @@
                       >
                     </h2>
                     <p class="text-lg">
-                      Livraria do Geraldo os melhores livros com os melhores
-                      preços!
+                      <span class="text-purple-700"
+                        ><router-link to="/Dashboard"
+                          >Livraria do Geraldo</router-link
+                        ></span
+                      >
+                      os melhores livros com os melhores preços!
                     </p>
                   </div>
                 </div>
